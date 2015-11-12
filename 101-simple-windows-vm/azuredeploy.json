@@ -36,7 +36,7 @@
       "metadata": {
         "description": "Restricts choices to where premium storage is located in the US."
       }
-    }
+    },
     "windowsOSVersion": {
       "type": "string",
       "defaultValue": "2012-R2-Datacenter",
@@ -177,18 +177,18 @@
             "caching": "ReadWrite",
             "createOption": "FromImage"
           }
+          "dataDisks": [
+            {
+              "name": "datadisk1",
+              "diskSizeGB": "[parameters('SizeOfDiskInGB')]",
+              "lun": 0,
+              "vhd": {
+                "Uri": "[variables('dataDisk1VhdName')]"
+              },
+              "createOption": "Empty"
+            }
+          ]
         },
-        "dataDisks": [
-          {
-            "name": "datadisk1",
-            "diskSizeGB": "[parameters('SizeOfDiskInGB')]",
-            "lun": 0,
-            "vhd": {
-              "Uri": "[variables('dataDisk1VhdName')]"
-            },
-            "createOption": "Empty"
-          }
-        ]
         "networkProfile": {
           "networkInterfaces": [
             {
